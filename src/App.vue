@@ -1,11 +1,54 @@
-<script setup></script>
+<script setup>
+import { computed, ref } from "vue";
+import CellGrid from "./components/CellGrid.vue";
+import ColorPicker from "./components/ColorPicker.vue";
+
+const color = ref('#ffffff');
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <h1>vestabuilder</h1>
+    <div class="main">
+      <ColorPicker v-model="color"/>
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  font: 'Courier';
+  font-family: monospace;
+
+  .bg-red {
+    background: #da291c;
+  }
+  .bg-orange {
+    background: #f67502;
+  }
+  .bg-yellow {
+    background: #f9b81d;
+  }
+  .bg-blue {
+    background: #2e84d5;
+  }
+  .bg-green {
+    background: #26853f;
+  }
+  .bg-purple {
+    background: #702f8a;
+  }
+  .bg-white {
+    background: #ffffff;
+  }
+  .bg-black {
+    background: #2c2c2c;
+  }
+
+  .color-cell {
+    width: 12px;
+    height: 17px;
+    border: 1px solid grey;
+  }
+}
+</style>
