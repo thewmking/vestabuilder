@@ -48,18 +48,29 @@ const selectCell = (row, col) => {
 
   cells.value[rowNum][colNum] = props.color;
 };
+
+
+const exportGrid = () => {
+  // TODO: convert each cell to vesta color code
+  // write to JSON text and download file
+}
 </script>
 
 <template>
-  <div class="cell-grid" v-if="rowCount && colCount">
-    <div class="grid-row" v-for="row in rowCount" :key="`row-${row}`">
-      <div
-          v-for="col in colCount"
-          :key="`col-${col}`"
-          :class="cellColorClass(row, col)"
-          class="color-cell"
-          @click="selectCell(row, col)"
-      ></div>
+  <div class="cell-grid-wrapper">
+    <div class="cell-grid">
+      <div class="grid-row" v-for="row in rowCount" :key="`row-${row}`">
+        <div
+            v-for="col in colCount"
+            :key="`col-${col}`"
+            :class="cellColorClass(row, col)"
+            class="color-cell"
+            @click="selectCell(row, col)"
+        ></div>
+      </div>
+    </div>
+    <div class="export-section">
+      <button @click="exportGrid">Build array</button>
     </div>
   </div>
 </template>
@@ -75,5 +86,9 @@ const selectCell = (row, col) => {
     display: flex;
     gap: 5px;
   }
+}
+
+.export-section {
+  margin-top: 20px;
 }
 </style>

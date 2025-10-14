@@ -7,9 +7,9 @@ const color = ref('#ffffff');
 </script>
 
 <template>
-  <div id="app">
+  <div id="main">
     <h1>vestabuilder</h1>
-    <div class="main">
+    <div class="components-wrapper">
       <ColorPicker v-model="color"/>
       <CellGrid :color="color" />
     </div>
@@ -50,6 +50,16 @@ body {
     width: 12px;
     height: 17px;
     border: 1px solid grey;
+  }
+}
+
+#app {
+  margin: 100px auto;
+
+  #main {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>
