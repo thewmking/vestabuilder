@@ -1,42 +1,10 @@
 <script setup>
 import { computed } from "vue";
+import { COLOR_OPTIONS } from "./../colors";
 
 const color = defineModel({ type: String, default: null });
 
-const colorOptions = [
-    { 
-      label: 'Red',
-      value: '#da291c',
-    },
-    { 
-      label: 'Orange',
-      value: '#f67502',
-    },
-    { 
-      label: 'Yellow',
-      value: '#f9b81d',
-    },
-    { 
-      label: 'Green',
-      value: '#26853f',
-    },
-    { 
-      label: 'Blue',
-      value: '#2e84d5',
-    },
-    { 
-      label: 'Purple',
-      value: '#702f8a',
-    },
-    { 
-      label: 'White',
-      value: '#ffffff',
-    },
-    { 
-      label: 'Black',
-      value: '#2c2c2c',
-    }
-  ];
+const colorOptions = COLOR_OPTIONS;
 
 const sampleClass = computed(() => {
   const option = colorOptions.filter((o) => {

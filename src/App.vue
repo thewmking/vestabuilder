@@ -11,6 +11,7 @@ const color = ref('#ffffff');
     <h1>vestabuilder</h1>
     <div class="main">
       <ColorPicker v-model="color"/>
+      <CellGrid :color="color" />
     </div>
   </div>
 </template>
