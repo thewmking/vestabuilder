@@ -60,3 +60,14 @@ export const COLOR_OPTIONS = [
     [COLOR_WHITE]: LABEL_WHITE,
     [COLOR_BLACK]: LABEL_BLACK,
   }
+
+  export const hexCodeMap = {
+    [COLOR_RED]: 63,
+    [COLOR_ORANGE]: 64,
+    [COLOR_YELLOW]: 65,
+    [COLOR_GREEN]: 66,
+    [COLOR_BLUE]: 67,
+    [COLOR_PURPLE]: 68,
+    [COLOR_WHITE]: 69,
+    [COLOR_BLACK]: 70,
+  }

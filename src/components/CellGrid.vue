@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { COLOR_WHITE, hexLabelMap } from "./../colors";
+import { COLOR_WHITE, hexCodeMap, hexLabelMap } from "./../colors";
 
 const props = defineProps({
   color: { type: String, required: true }
@@ -23,6 +23,7 @@ const defaultCells = () => {
 };
 
 const cells = ref(defaultCells());
+const filename = ref('vesta-array');
 
 const cellCoords = (row, col) => {
   return {
@@ -51,9 +52,25 @@ const selectCell = (row, col) => {
 
 
 const exportGrid = () => {
-  // TODO: convert each cell to vesta color code
-  // write to JSON text and download file
+  const convertedCells = [];
+
+  cells.value.forEach((row) => {
+    const mappedRow = row.map((c) => {
+      return hexCodeMap[c];
+    });
+    convertedCells.push(mappedRow);
+  });
+
+  downloadFile(JSON.stringify(convertedCells), `${filename.value}.txt`, 'txt');
 }
+
+const downloadFile = (content, fileName, contentType) => {
+  const a = document.createElement("a");
+  const file = new Blob([content], {type: contentType});
+  a.href = URL.createObjectURL(file);
+  a.download = fileName;
+  a.click();
+};
 </script>
 
 <template>
@@ -70,7 +87,11 @@ const exportGrid = () => {
       </div>
     </div>
     <div class="export-section">
-      <button @click="exportGrid">Build array</button>
+      <div class="form-group">
+        <label for="filename">Provide a file name</label>
+        <input id="filename" type="text" v-model="filename" />
+      </div>
+      <button @click="exportGrid">Download json txt</button>
     </div>
   </div>
 </template>
@@ -90,5 +111,15 @@ const exportGrid = () => {
 
 .export-section {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: flex-start;
+}
+
+.form-group {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
 }
 </style>
