@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import CellGrid from "./components/CellGrid.vue";
 import ColorPicker from "./components/ColorPicker.vue";
 
