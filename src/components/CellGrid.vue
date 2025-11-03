@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { COLOR_WHITE, hexCodeMap, hexLabelMap } from "./../colors";
+import { COLOR_BLACK, COLOR_WHITE, hexCodeMap, hexLabelMap } from "./../colors";
 
 const props = defineProps({
   color: { type: String, required: true }
@@ -10,7 +10,7 @@ const rowCount = 6;
 const colCount = 22;
 
 const defaultCells = () => {
-  const colArray = `${COLOR_WHITE},`.repeat(colCount).split(',');
+  const colArray = `${COLOR_BLACK},`.repeat(colCount).split(',');
   const filtered = colArray.filter((i) => i != '');
 
   const grid = [];
@@ -75,6 +75,7 @@ const downloadFile = (content, fileName, contentType) => {
 
 <template>
   <div class="cell-grid-wrapper">
+    <p>Click cells to color!</p>
     <div class="cell-grid">
       <div class="grid-row" v-for="row in rowCount" :key="`row-${row}`">
         <div

@@ -3,7 +3,7 @@ import { ref } from "vue";
 import CellGrid from "./components/CellGrid.vue";
 import ColorPicker from "./components/ColorPicker.vue";
 
-const color = ref('#ffffff');
+const color = ref('#2c2c2c');
 </script>
 
 <template>
@@ -17,6 +17,9 @@ const color = ref('#ffffff');
 </template>
 
 <style>
+html {
+  background: #2C2C2C;
+}
 body {
   font: 'Courier';
   font-family: monospace;
@@ -50,6 +53,7 @@ body {
     width: 12px;
     height: 17px;
     border: 1px solid grey;
+    cursor: pointer;
   }
 }
 
@@ -60,6 +64,8 @@ body {
     max-width: 450px;
     margin-left: auto;
     margin-right: auto;
+
+    color: #E7F6F2;
   }
 }
 </style>
